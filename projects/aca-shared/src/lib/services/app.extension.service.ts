@@ -407,6 +407,13 @@ export class AppExtensionService implements RuleContext {
         canActivate: guards,
         parentRoute: route.parentRoute,
         children: [
+          ...(route['children'] ? route['children'].map(({path, component, outlet}) => {
+            return {
+              path,
+              outlet,
+              component: this.getComponentById(component)
+            }
+          }) : []),
           {
             path: '',
             component: this.getComponentById(route.component),
