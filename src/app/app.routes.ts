@@ -83,14 +83,6 @@ export const APP_ROUTES: Routes = [
     ]
   },
   {
-    path: 'preview/:nodeId',
-    loadChildren: './components/preview/preview.module#PreviewModule',
-    outlet: 'viewer',
-    data: {
-      navigateSource: '/dev/null'
-    }
-  },
-  {
     path: '',
     component: AppLayoutComponent,
     canActivate: [AuthGuardEcm, ExtensionsDataLoaderGuard],
