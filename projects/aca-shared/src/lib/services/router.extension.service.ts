@@ -71,13 +71,11 @@ export class RouterExtensionService {
         children: [
           ...(route['children']
             ? route['children'].map(
-                ({ path, component, loadChildren, outlet }) => {
+                ({ path, component, outlet }) => {
                   return {
                     path,
                     outlet,
-                    ...(component
-                      ? { component: this.getComponentById(component) }
-                      : { loadChildren })
+                    component: this.getComponentById(component)
                   };
                 }
               )

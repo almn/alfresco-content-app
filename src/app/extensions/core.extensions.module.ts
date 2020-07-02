@@ -57,6 +57,7 @@ import {
   AppExtensionService,
   ExtensionsDataLoaderGuard
 } from '@alfresco/aca-shared';
+import { PreviewComponent } from '../components/preview/preview.component';
 
 export function setupExtensions(service: AppExtensionService): Function {
   return () => service.load();
@@ -93,6 +94,7 @@ export class CoreExtensionsModule {
       'app.components.tabs.library.metadata': LibraryMetadataTabComponent,
       'app.components.tabs.comments': CommentsTabComponent,
       'app.components.tabs.versions': VersionsTabComponent,
+      'app.components.preview': PreviewComponent,
       'app.toolbar.toggleInfoDrawer': ToggleInfoDrawerComponent,
       'app.toolbar.toggleFavorite': ToggleFavoriteComponent,
       'app.toolbar.toggleFavoriteLibrary': ToggleFavoriteLibraryComponent,
