@@ -16,6 +16,7 @@
     "build": "npm run validate-config && npm run build.app -- --prod",
     "build.e2e": "npm run build.app -- --prod --configuration=e2e",
     "test": "ng test app --code-coverage",
+    "unit": "ng test --browsers=Chrome --watch",
     "test:ci": "npm run build.extensions && ng test adf-office-services-ext --watch=false && ng test app --code-coverage --watch=false",
     "lint": "ng lint && npm run spellcheck && npm run e2e.typecheck",
     "update-webdriver": "./scripts/update-webdriver.sh",

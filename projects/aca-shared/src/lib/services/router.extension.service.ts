@@ -56,7 +56,7 @@ export class RouterExtensionService {
     this.router.config.unshift(...routesWithoutParent);
   }
 
-  private getApplicationRoutes(): Array<ExtensionRoute> {
+  public getApplicationRoutes(): Array<ExtensionRoute> {
     return this.extensions.routes.map(route => {
       const guards = this.extensions.getAuthGuards(
         route.auth && route.auth.length > 0 ? route.auth : this.defaults.auth
@@ -70,15 +70,13 @@ export class RouterExtensionService {
         parentRoute: route.parentRoute,
         children: [
           ...(route['children']
-            ? route['children'].map(
-                ({ path, component, outlet }) => {
-                  return {
-                    path,
-                    outlet,
-                    component: this.getComponentById(component)
-                  };
-                }
-              )
+            ? route['children'].map(({ path, component, outlet }) => {
+                return {
+                  path,
+                  outlet,
+                  component: this.getComponentById(component)
+                };
+              })
             : []),
           {
             path: '',
