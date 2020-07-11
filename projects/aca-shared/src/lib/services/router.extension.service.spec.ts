@@ -299,8 +299,8 @@ describe('RouterExtensionService', () => {
       service.mapExtensionRoutes();
 
       expect(parentRoute.children[0].path).toBe(route1.path);
-      expect((<any>parentRoute.children[0]).parentRoute).toBe(undefined);
-      expect((<any>parentRoute.children[0]).component).toBe(undefined);
+      expect((parentRoute.children[0] as any).parentRoute).toBe(undefined);
+      expect((parentRoute.children[0] as any).component).toBe(undefined);
     });
 
     it('should NOT add routes at all if parent can not be found (only one level deep searching)', () => {
